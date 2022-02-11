@@ -1,0 +1,1067 @@
+<sdf version='1.8'>
+  <model name='El_Mandadero'>
+    <pose>0 0 .5 0 0 0</pose>
+    <self_collide>false</self_collide>
+    <static>false</static>
+    <link name="El_Mandadero/Base">
+      <inertial>
+        <mass>2.0</mass>
+        <inertia>
+          <ixx>0.02166666666666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.02166666666666667</iyy>
+          <iyz>0</iyz>
+          <izz>0.04000000000000001</izz>
+        </inertia>
+      </inertial>
+      <gravity>true</gravity>
+      <velocity_decay/>
+      <collision name="El_Mandadero/Base_Collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/Base.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <min_depth>0.001</min_depth>
+              <max_vel>0</max_vel>
+            </ode>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="El_Mandadero/BaseYellowMetal">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/Base.dae</uri>
+            <submesh>
+              <name>YellowMetalBodyMesh</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://El_Mandadero/materials/textures/YellowMetal_Color.png</albedo_map>
+              <normal_map type="object">model://El_Mandadero/materials/textures/YellowMetal_Normal.png</normal_map>
+              <roughness_map>model://El_Mandadero/materials/textures/YellowMetal_Roughness.png</roughness_map>
+              <metalness_map>model://El_Mandadero/materials/textures/YellowMetal_Metalness.png</metalness_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="El_Mandadero/BaseRubber">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/Base.dae</uri>
+            <submesh>
+              <name>RubberMesh</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://El_Mandadero/materials/textures/Rubber_Color.png</albedo_map>
+              <normal_map type="object">model://El_Mandadero/materials/textures/Rubber_Normal.png</normal_map>
+              <roughness_map>model://El_Mandadero/materials/textures/Rubber_Roughness.png</roughness_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="El_Mandadero/BaseMetalCover">
+        <pose>0 0 0 0 0 0</pose>
+        <render_order>10</render_order>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/Base.dae</uri>
+            <submesh>
+              <name>MetalCoverMesh</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <emmisive>1.0 1.0 1.0 1.0</emmisive>
+          <ambient>1.0 1.0 1.0 1.0</ambient>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://El_Mandadero/materials/textures/WhitePlastic_Color.png</albedo_map>
+              <normal_map type="tangent">model://El_Mandadero/materials/textures/YellowMetal_Normal.png</normal_map>
+              <roughness_map>model://El_Mandadero/materials/textures/YellowMetal_Roughness.png</roughness_map>
+              <metalness_map>model://El_Mandadero/materials/textures/YellowMetal_Metalness.png</metalness_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="El_Mandadero/BaseMetalSuspension">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/Base.dae</uri>
+            <submesh>
+              <name>MetalSuspensionMesh</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://El_Mandadero/materials/textures/Metal_Color.png</albedo_map>
+              <normal_map type="object">model://El_Mandadero/materials/textures/Metal_Normal.png</normal_map>
+              <roughness_map>model://El_Mandadero/materials/textures/Metal_Roughness.png</roughness_map>
+              <metalness_map>model://El_Mandadero/materials/textures/Metal_Metalness.png</metalness_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="El_Mandadero/BaseMetalCrossBrace">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/Base.dae</uri>
+            <submesh>
+              <name>MetalCrossBraceMesh</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://El_Mandadero/materials/textures/Metal_Color.png</albedo_map>
+              <normal_map type="object">model://El_Mandadero/materials/textures/Metal_Normal.png</normal_map>
+              <roughness_map>model://El_Mandadero/materials/textures/Metal_Roughness.png</roughness_map>
+              <metalness_map>model://El_Mandadero/materials/textures/Metal_Metalness.png</metalness_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="El_Mandadero/BaseYellowPlasticTop">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/Base.dae</uri>
+            <submesh>
+              <name>YellowPlasticTopMesh</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://El_Mandadero/materials/textures/YellowPlastic_Color.png</albedo_map>
+              <normal_map type="object">model://El_Mandadero/materials/textures/Plastic_Normal.png</normal_map>
+              <roughness_map>model://El_Mandadero/materials/textures/Plastic_Roughness.png</roughness_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="El_Mandadero/BaseClearPlasticGuard">
+        <pose>0 0 0 0 0 0</pose>
+        <cast_shadow>0</cast_shadow>
+        <transparency>.5</transparency>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/Base.dae</uri>
+            <submesh>
+              <name>ClearPlasticGuardMesh</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>.5 .5 .5</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://El_Mandadero/materials/textures/WhitePlastic_Color.png</albedo_map>
+              <normal_map type="object">model://El_Mandadero/materials/textures/Plastic_Normal.png</normal_map>
+              <roughness_map>model://El_Mandadero/materials/textures/Plastic_Roughness.png</roughness_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+    <link name="El_Mandadero/FrontLeftArm">
+      <pose relative_to="El_Mandadero/FrontLeftArmJoint">0 0 0 0 0 0</pose>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.002166666666666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.002166666666666667</iyy>
+          <iyz>0</iyz>
+          <izz>0.004000000000000001</izz>
+        </inertia>
+      </inertial>
+      <gravity>true</gravity>
+      <velocity_decay/>
+      <visual name="El_Mandadero/FrontLeftArmMetal_Visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/ArmLeft.dae</uri>
+            <submesh>
+              <name>MetalMesh</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <emmisive>1.0 1.0 1.0 1.0</emmisive>
+          <ambient>1.0 1.0 1.0 1.0</ambient>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://El_Mandadero/materials/textures/WhitePlastic_Color.png</albedo_map>
+              <normal_map type="tangent">model://El_Mandadero/materials/textures/YellowMetal_Normal.png</normal_map>
+              <roughness_map>model://El_Mandadero/materials/textures/YellowMetal_Roughness.png</roughness_map>
+              <metalness_map>model://El_Mandadero/materials/textures/YellowMetal_Metalness.png</metalness_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="El_Mandadero/FrontLeftArmPlastic_Visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/ArmLeft.dae</uri>
+            <submesh>
+              <name>PlasticMesh</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <emmisive>1.0 1.0 1.0 1.0</emmisive>
+          <ambient>1.0 1.0 1.0 1.0</ambient>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://El_Mandadero/materials/textures/OrangePlastic_Color.png</albedo_map>
+              <normal_map type="tangent">model://El_Mandadero/materials/textures/Plastic_Normal.png</normal_map>
+              <roughness_map>model://El_Mandadero/materials/textures/Plastic_Roughness.png</roughness_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <collision name="El_Mandadero/FrontLeftArm_Collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/ArmLeft.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <min_depth>0.001</min_depth>
+              <max_vel>0</max_vel>
+            </ode>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    <link name="El_Mandadero/FrontLeftHubMotorWheel">
+      <pose relative_to="El_Mandadero/FrontLeftHubMotorWheelJoint">0 0 0 0 0 0</pose>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.002166666666666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.002166666666666667</iyy>
+          <iyz>0</iyz>
+          <izz>0.004000000000000001</izz>
+        </inertia>
+      </inertial>
+      <gravity>true</gravity>
+      <velocity_decay/>
+      <visual name="El_Mandadero/FrontLeftHubMotorWheelMetal_Visual">
+        <pose>0 0 0 0 0 3.14159265359</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/HubMotorWheel.dae</uri>
+            <submesh>
+              <name>HubMotorMesh</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <emmisive>1.0 1.0 1.0 1.0</emmisive>
+          <ambient>1.0 1.0 1.0 1.0</ambient>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://El_Mandadero/materials/textures/WhitePlastic_Color.png</albedo_map>
+              <normal_map type="tangent">model://El_Mandadero/materials/textures/YellowMetal_Normal.png</normal_map>
+              <roughness_map>model://El_Mandadero/materials/textures/YellowMetal_Roughness.png</roughness_map>
+              <metalness_map>model://El_Mandadero/materials/textures/YellowMetal_Metalness.png</metalness_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="El_Mandadero/FrontLeftHubMotorWheelRubber_Visual">
+        <pose>0 0 0 0 0 3.14159265359</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/HubMotorWheel.dae</uri>
+            <submesh>
+              <name>RubberWheelMesh</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <emmisive>1.0 1.0 1.0 1.0</emmisive>
+          <ambient>1.0 1.0 1.0 1.0</ambient>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://El_Mandadero/materials/textures/Rubber_Color.png</albedo_map>
+              <normal_map type="object">model://El_Mandadero/materials/textures/Rubber_Normal.png</normal_map>
+              <roughness_map>model://El_Mandadero/materials/textures/Rubber_Roughness.png</roughness_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <collision name="El_Mandadero/FrontLeftHubMotorWheel_Collision">
+        <pose>0 0 0 0 0 3.14159265359</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/HubMotorWheel.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <min_depth>0.001</min_depth>
+              <max_vel>0</max_vel>
+            </ode>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    <joint name="El_Mandadero/FrontLeftArmJoint" type="revolute">
+      <parent>El_Mandadero/Base</parent>
+      <child>El_Mandadero/FrontLeftArm</child>
+      <pose relative_to="El_Mandadero/Base">.263 .238 .029 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.5</lower>
+          <upper>0.5</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>100</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <joint name="El_Mandadero/FrontLeftHubMotorWheelJoint" type="revolute">
+      <parent>El_Mandadero/FrontLeftArm</parent>
+      <child>El_Mandadero/FrontLeftHubMotorWheel</child>
+      <pose relative_to="El_Mandadero/FrontLeftArm">.11861 .095 -.07453 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+        <link name="El_Mandadero/BackLeftArm">
+      <pose relative_to="El_Mandadero/BackLeftArmJoint">0 0 0 0 0 0</pose>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.002166666666666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.002166666666666667</iyy>
+          <iyz>0</iyz>
+          <izz>0.004000000000000001</izz>
+        </inertia>
+      </inertial>
+      <gravity>true</gravity>
+      <velocity_decay/>
+      <visual name="El_Mandadero/BackLeftArmMetal_Visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/ArmLeft.dae</uri>
+            <submesh>
+              <name>MetalMesh</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <emmisive>1.0 1.0 1.0 1.0</emmisive>
+          <ambient>1.0 1.0 1.0 1.0</ambient>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://El_Mandadero/materials/textures/WhitePlastic_Color.png</albedo_map>
+              <normal_map type="tangent">model://El_Mandadero/materials/textures/YellowMetal_Normal.png</normal_map>
+              <roughness_map>model://El_Mandadero/materials/textures/YellowMetal_Roughness.png</roughness_map>
+              <metalness_map>model://El_Mandadero/materials/textures/YellowMetal_Metalness.png</metalness_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="El_Mandadero/BackLeftArmPlastic_Visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/ArmLeft.dae</uri>
+            <submesh>
+              <name>PlasticMesh</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <emmisive>1.0 1.0 1.0 1.0</emmisive>
+          <ambient>1.0 1.0 1.0 1.0</ambient>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://El_Mandadero/materials/textures/OrangePlastic_Color.png</albedo_map>
+              <normal_map type="tangent">model://El_Mandadero/materials/textures/Plastic_Normal.png</normal_map>
+              <roughness_map>model://El_Mandadero/materials/textures/Plastic_Roughness.png</roughness_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <collision name="El_Mandadero/BackLeftArm_Collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/ArmLeft.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <min_depth>0.001</min_depth>
+              <max_vel>0</max_vel>
+            </ode>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    <link name="El_Mandadero/BackLeftHubMotorWheel">
+      <pose relative_to="El_Mandadero/BackLeftHubMotorWheelJoint">0 0 0 0 0 0</pose>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.002166666666666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.002166666666666667</iyy>
+          <iyz>0</iyz>
+          <izz>0.004000000000000001</izz>
+        </inertia>
+      </inertial>
+      <gravity>true</gravity>
+      <velocity_decay/>
+      <visual name="El_Mandadero/BackLeftHubMotorWheelMetal_Visual">
+        <pose>0 0 0 0 0 3.14159265359</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/HubMotorWheel.dae</uri>
+            <submesh>
+              <name>HubMotorMesh</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <emmisive>1.0 1.0 1.0 1.0</emmisive>
+          <ambient>1.0 1.0 1.0 1.0</ambient>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://El_Mandadero/materials/textures/WhitePlastic_Color.png</albedo_map>
+              <normal_map type="tangent">model://El_Mandadero/materials/textures/YellowMetal_Normal.png</normal_map>
+              <roughness_map>model://El_Mandadero/materials/textures/YellowMetal_Roughness.png</roughness_map>
+              <metalness_map>model://El_Mandadero/materials/textures/YellowMetal_Metalness.png</metalness_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="El_Mandadero/BackLeftHubMotorWheelRubber_Visual">
+        <pose>0 0 0 0 0 3.14159265359</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/HubMotorWheel.dae</uri>
+            <submesh>
+              <name>RubberWheelMesh</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <emmisive>1.0 1.0 1.0 1.0</emmisive>
+          <ambient>1.0 1.0 1.0 1.0</ambient>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://El_Mandadero/materials/textures/Rubber_Color.png</albedo_map>
+              <normal_map type="object">model://El_Mandadero/materials/textures/Rubber_Normal.png</normal_map>
+              <roughness_map>model://El_Mandadero/materials/textures/Rubber_Roughness.png</roughness_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <collision name="El_Mandadero/BackLeftHubMotorWheel_Collision">
+        <pose>0 0 0 0 0 3.14159265359</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/HubMotorWheel.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <min_depth>0.001</min_depth>
+              <max_vel>0</max_vel>
+            </ode>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    <joint name="El_Mandadero/BackLeftArmJoint" type="revolute">
+      <parent>El_Mandadero/Base</parent>
+      <child>El_Mandadero/BackLeftArm</child>
+      <pose relative_to="El_Mandadero/Base">-.263 -.238 .029 0 0 3.14159265359</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.5</lower>
+          <upper>0.5</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>100</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <joint name="El_Mandadero/BackLeftHubMotorWheelJoint" type="revolute">
+      <parent>El_Mandadero/BackLeftArm</parent>
+      <child>El_Mandadero/BackLeftHubMotorWheel</child>
+      <pose relative_to="El_Mandadero/BackLeftArm">.11861 .095 -.07453 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name="El_Mandadero/FrontRightArm">
+      <pose relative_to="El_Mandadero/FrontRightArmJoint">0 0 0 0 0 0</pose>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.002166666666666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.002166666666666667</iyy>
+          <iyz>0</iyz>
+          <izz>0.004000000000000001</izz>
+        </inertia>
+      </inertial>
+      <gravity>true</gravity>
+      <velocity_decay/>
+      <visual name="El_Mandadero/FrontRightArmMetal_Visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/ArmRight.dae</uri>
+            <submesh>
+              <name>MetalMesh</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <emmisive>1.0 1.0 1.0 1.0</emmisive>
+          <ambient>1.0 1.0 1.0 1.0</ambient>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://El_Mandadero/materials/textures/WhitePlastic_Color.png</albedo_map>
+              <normal_map type="tangent">model://El_Mandadero/materials/textures/YellowMetal_Normal.png</normal_map>
+              <roughness_map>model://El_Mandadero/materials/textures/YellowMetal_Roughness.png</roughness_map>
+              <metalness_map>model://El_Mandadero/materials/textures/YellowMetal_Metalness.png</metalness_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="El_Mandadero/FrontRightArmPlastic_Visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/ArmRight.dae</uri>
+            <submesh>
+              <name>PlasticMesh</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <emmisive>1.0 1.0 1.0 1.0</emmisive>
+          <ambient>1.0 1.0 1.0 1.0</ambient>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://El_Mandadero/materials/textures/OrangePlastic_Color.png</albedo_map>
+              <normal_map type="tangent">model://El_Mandadero/materials/textures/Plastic_Normal.png</normal_map>
+              <roughness_map>model://El_Mandadero/materials/textures/Plastic_Roughness.png</roughness_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <collision name="El_Mandadero/FrontRightArm_Collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/ArmRight.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <min_depth>0.001</min_depth>
+              <max_vel>0</max_vel>
+            </ode>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    <link name="El_Mandadero/FrontRightHubMotorWheel">
+      <pose relative_to="El_Mandadero/FrontRightHubMotorWheelJoint">0 0 0 0 0 0</pose>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.002166666666666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.002166666666666667</iyy>
+          <iyz>0</iyz>
+          <izz>0.004000000000000001</izz>
+        </inertia>
+      </inertial>
+      <gravity>true</gravity>
+      <velocity_decay/>
+      <visual name="El_Mandadero/FrontRightHubMotorWheelMetal_Visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/HubMotorWheel.dae</uri>
+            <submesh>
+              <name>HubMotorMesh</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <emmisive>1.0 1.0 1.0 1.0</emmisive>
+          <ambient>1.0 1.0 1.0 1.0</ambient>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://El_Mandadero/materials/textures/WhitePlastic_Color.png</albedo_map>
+              <normal_map type="tangent">model://El_Mandadero/materials/textures/YellowMetal_Normal.png</normal_map>
+              <roughness_map>model://El_Mandadero/materials/textures/YellowMetal_Roughness.png</roughness_map>
+              <metalness_map>model://El_Mandadero/materials/textures/YellowMetal_Metalness.png</metalness_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="El_Mandadero/FrontRightHubMotorWheelRubber_Visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/HubMotorWheel.dae</uri>
+            <submesh>
+              <name>RubberWheelMesh</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <emmisive>1.0 1.0 1.0 1.0</emmisive>
+          <ambient>1.0 1.0 1.0 1.0</ambient>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://El_Mandadero/materials/textures/Rubber_Color.png</albedo_map>
+              <normal_map type="object">model://El_Mandadero/materials/textures/Rubber_Normal.png</normal_map>
+              <roughness_map>model://El_Mandadero/materials/textures/Rubber_Roughness.png</roughness_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <collision name="El_Mandadero/FrontRightHubMotorWheel_Collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/HubMotorWheel.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <min_depth>0.001</min_depth>
+              <max_vel>0</max_vel>
+            </ode>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    <joint name="El_Mandadero/FrontRightArmJoint" type="revolute">
+      <parent>El_Mandadero/Base</parent>
+      <child>El_Mandadero/FrontRightArm</child>
+      <pose relative_to="El_Mandadero/Base">.263 -.238 .029 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.5</lower>
+          <upper>0.5</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>100</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <joint name="El_Mandadero/FrontRightHubMotorWheelJoint" type="revolute">
+      <parent>El_Mandadero/FrontRightArm</parent>
+      <child>El_Mandadero/FrontRightHubMotorWheel</child>
+      <pose relative_to="El_Mandadero/FrontRightArm">.11861 -.095 -.07453 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+        <link name="El_Mandadero/BackRightArm">
+      <pose relative_to="El_Mandadero/BackRightArmJoint">0 0 0 0 0 0</pose>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.002166666666666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.002166666666666667</iyy>
+          <iyz>0</iyz>
+          <izz>0.004000000000000001</izz>
+        </inertia>
+      </inertial>
+      <gravity>true</gravity>
+      <velocity_decay/>
+      <visual name="El_Mandadero/BackRightArmMetal_Visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/ArmRight.dae</uri>
+            <submesh>
+              <name>MetalMesh</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <emmisive>1.0 1.0 1.0 1.0</emmisive>
+          <ambient>1.0 1.0 1.0 1.0</ambient>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://El_Mandadero/materials/textures/WhitePlastic_Color.png</albedo_map>
+              <normal_map type="tangent">model://El_Mandadero/materials/textures/YellowMetal_Normal.png</normal_map>
+              <roughness_map>model://El_Mandadero/materials/textures/YellowMetal_Roughness.png</roughness_map>
+              <metalness_map>model://El_Mandadero/materials/textures/YellowMetal_Metalness.png</metalness_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="El_Mandadero/BackRightArmPlastic_Visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/ArmRight.dae</uri>
+            <submesh>
+              <name>PlasticMesh</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <emmisive>1.0 1.0 1.0 1.0</emmisive>
+          <ambient>1.0 1.0 1.0 1.0</ambient>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://El_Mandadero/materials/textures/OrangePlastic_Color.png</albedo_map>
+              <normal_map type="tangent">model://El_Mandadero/materials/textures/Plastic_Normal.png</normal_map>
+              <roughness_map>model://El_Mandadero/materials/textures/Plastic_Roughness.png</roughness_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <collision name="El_Mandadero/BackRightArm_Collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/ArmRight.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <min_depth>0.001</min_depth>
+              <max_vel>0</max_vel>
+            </ode>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    <link name="El_Mandadero/BackRightHubMotorWheel">
+      <pose relative_to="El_Mandadero/BackRightHubMotorWheelJoint">0 0 0 0 0 0</pose>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.002166666666666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.002166666666666667</iyy>
+          <iyz>0</iyz>
+          <izz>0.004000000000000001</izz>
+        </inertia>
+      </inertial>
+      <gravity>true</gravity>
+      <velocity_decay/>
+      <visual name="El_Mandadero/BackRightHubMotorWheelMetal_Visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/HubMotorWheel.dae</uri>
+            <submesh>
+              <name>HubMotorMesh</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <emmisive>1.0 1.0 1.0 1.0</emmisive>
+          <ambient>1.0 1.0 1.0 1.0</ambient>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://El_Mandadero/materials/textures/WhitePlastic_Color.png</albedo_map>
+              <normal_map type="tangent">model://El_Mandadero/materials/textures/YellowMetal_Normal.png</normal_map>
+              <roughness_map>model://El_Mandadero/materials/textures/YellowMetal_Roughness.png</roughness_map>
+              <metalness_map>model://El_Mandadero/materials/textures/YellowMetal_Metalness.png</metalness_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="El_Mandadero/BackRightHubMotorWheelRubber_Visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/HubMotorWheel.dae</uri>
+            <submesh>
+              <name>RubberWheelMesh</name>
+              <center>false</center>
+            </submesh>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <emmisive>1.0 1.0 1.0 1.0</emmisive>
+          <ambient>1.0 1.0 1.0 1.0</ambient>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://El_Mandadero/materials/textures/Rubber_Color.png</albedo_map>
+              <normal_map type="object">model://El_Mandadero/materials/textures/Rubber_Normal.png</normal_map>
+              <roughness_map>model://El_Mandadero/materials/textures/Rubber_Roughness.png</roughness_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <collision name="El_Mandadero/BackRightHubMotorWheel_Collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://El_Mandadero/meshes/HubMotorWheel.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <min_depth>0.001</min_depth>
+              <max_vel>0</max_vel>
+            </ode>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    <joint name="El_Mandadero/BackRightArmJoint" type="revolute">
+      <parent>El_Mandadero/Base</parent>
+      <child>El_Mandadero/BackRightArm</child>
+      <pose relative_to="El_Mandadero/Base">-.263 .238 .029 0 0 3.14159265359</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.5</lower>
+          <upper>0.5</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>100</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <joint name="El_Mandadero/BackRightHubMotorWheelJoint" type="revolute">
+      <parent>El_Mandadero/BackRightArm</parent>
+      <child>El_Mandadero/BackRightHubMotorWheel</child>
+      <pose relative_to="El_Mandadero/BackRightArm">.11861 -.095 -.07453 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+  </model>
+</sdf>
