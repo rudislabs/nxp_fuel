@@ -532,7 +532,7 @@
       <gravity>true</gravity>
       <velocity_decay/>
       <visual name="El_Mandadero/BackLeftHubMotorWheelMetal_Visual">
-        <pose>0 0 0 0 0 3.14159265359</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -559,7 +559,7 @@
         </material>
       </visual>
       <visual name="El_Mandadero/BackLeftHubMotorWheelRubber_Visual">
-        <pose>0 0 0 0 0 3.14159265359</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -585,7 +585,7 @@
         </material>
       </visual>
       <collision name="El_Mandadero/BackLeftHubMotorWheel_Collision">
-        <pose>0 0 0 0 0 3.14159265359</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -625,7 +625,7 @@
     <joint name="El_Mandadero/BackLeftHubMotorWheelJoint" type="revolute">
       <parent>El_Mandadero/BackLeftArm</parent>
       <child>El_Mandadero/BackLeftHubMotorWheel</child>
-      <pose relative_to="El_Mandadero/BackLeftArm">.11861 .095 -.07453 0 0 0</pose>
+      <pose relative_to="El_Mandadero/BackLeftArm">.11861 .095 -.07453 0 0 3.14159265359</pose>
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
@@ -956,7 +956,7 @@
       <gravity>true</gravity>
       <velocity_decay/>
       <visual name="El_Mandadero/BackRightHubMotorWheelMetal_Visual">
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0 0 0 3.14159265359</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -983,7 +983,7 @@
         </material>
       </visual>
       <visual name="El_Mandadero/BackRightHubMotorWheelRubber_Visual">
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0 0 0 3.14159265359</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -1009,7 +1009,7 @@
         </material>
       </visual>
       <collision name="El_Mandadero/BackRightHubMotorWheel_Collision">
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0 0 0 3.14159265359</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -1049,7 +1049,7 @@
     <joint name="El_Mandadero/BackRightHubMotorWheelJoint" type="revolute">
       <parent>El_Mandadero/BackRightArm</parent>
       <child>El_Mandadero/BackRightHubMotorWheel</child>
-      <pose relative_to="El_Mandadero/BackRightArm">.11861 -.095 -.07453 0 0 0</pose>
+      <pose relative_to="El_Mandadero/BackRightArm">.11861 -.095 -.07453 0 0 3.14159265359</pose>
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
@@ -1063,5 +1063,15 @@
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
+    <plugin filename="libignition-gazebo-diff-drive-system.so" name="ignition::gazebo::systems::DiffDrive">
+      <right_joint>El_Mandadero/BackLeftHubMotorWheelJoint</right_joint>
+      <left_joint>El_Mandadero/FrontLeftHubMotorWheelJoint</left_joint>
+      <left_joint>El_Mandadero/BackRightHubMotorWheelJoint</left_joint>
+      <right_joint>El_Mandadero/FrontRightHubMotorWheelJoint</right_joint>
+      <wheel_separation>0.667</wheel_separation>
+      <wheel_radius>0.108</wheel_radius>
+      <odom_publish_frequency>1</odom_publish_frequency>
+      <topic>cmd_vel</topic>
+    </plugin>
   </model>
 </sdf>
