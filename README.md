@@ -1,2 +1,2 @@
-# nxp_ignition
-NXP Ignition models
+# nxp_fuel
+Fuel ignition models for NXP.
