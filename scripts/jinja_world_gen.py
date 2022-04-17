@@ -11,12 +11,12 @@ import numpy as np
 import datetime
 import ast
 
-rel_ignition_path = ".."
-rel_world_path ="../worlds"
-script_path = os.path.realpath(__file__).replace("jinja_world_gen.py","")
-defaultEnvPath = os.path.relpath(os.path.join(script_path, rel_ignition_path))
-default_world_path = os.path.relpath(os.path.join(script_path, rel_world_path))
-defaultFilename = os.path.relpath(os.path.join(default_world_path, "gen.world.jinja"))
+relativeFuelPath = ".."
+relativeWorldPath ="../worlds"
+scriptPath = os.path.realpath(__file__).replace("jinja_world_gen.py","")
+defaultEnvPath = os.path.relpath(os.path.join(scriptPath, relativeFuelPath))
+defaultWorldPath = os.path.relpath(os.path.join(scriptPath, relativeWorldPath))
+defaultFilename = os.path.relpath(os.path.join(defaultWorldPath, "gen.world.jinja"))
 defaultSDFWorldDict = {
     "empty": 1.8,
     "canvas": 1.8,
@@ -29,7 +29,7 @@ if __name__ == "__main__":
     parser.add_argument('--skybox', default=0, help="Skybox on [1] or off [0]")
     parser.add_argument('--wind', default="NotSet", help="Dictionary of wind attributes (linear_velocity, more to come).")
     parser.add_argument('--name', default="NotSet", help="Name of world, see defaultSDFWorldDict for options")
-    parser.add_argument('--WGS84', default={'degLatitude': 39.8039, 'degLognitude': -84.0606, 'mAltitude': 244, 'useSphericalCoords': 1}, help="{'degLatitude': , 'degLognitude': , 'mAltitude': , 'useSphericalCoords': } for spherical coordinates and sunUTC calculation")
+    parser.add_argument('--WGS84', default={'degLatitude': 39.8039, 'degLongitude': -84.0606, 'mAltitude': 244, 'useSphericalCoords': 1}, help="{'degLatitude': , 'degLongitude': , 'mAltitude': , 'useSphericalCoords': } for spherical coordinates and sunUTC calculation")
     parser.add_argument('--embeddedModels', default="NotSet", help="Array of models with poses to be embedded in world file")
     parser.add_argument('--outputFile', help="world output file")
     args = parser.parse_args()
@@ -41,23 +41,22 @@ if __name__ == "__main__":
         WGS84 = ast.literal_eval(args.WGS84)
     except:
         print("Failed to read passed WGS84 dictionary using defaults.")
-        WGS84 = {'degLatitude': 39.8039, 'degLognitude': -84.0606, 'mAltitude': 244, 'useSphericalCoords': 1}
+        WGS84 = {'degLatitude': 39.8039, 'degLongitude': -84.0606, 'mAltitude': 244, 'useSphericalCoords': 1}
         pass
-    if 'degLatitude' not in WGS84 or 'degLognitude' not in WGS84 or 'mAltitude' not in WGS84 or 'useSphericalCoords' not in WGS84:
+    if ('degLatitude' not in WGS84) or ('degLongitude' not in WGS84) or ('mAltitude' not in WGS84) or ('useSphericalCoords' not in WGS84):
         print('Malformed WGS84 dictionary: {:s}\n using default.'.format(str(WGS84)))
-        WGS84 = {'degLatitude': 39.8039, 'degLognitude': -84.0606, 'mAltitude': 244, 'useSphericalCoords': 1}
+        WGS84 = {'degLatitude': 39.8039, 'degLongitude': -84.0606, 'mAltitude': 244, 'useSphericalCoords': 1}
 
     try:
         sun = ast.literal_eval(args.sun)
     except:
-        print("Failed to read passed WGS84 dictionary using defaults.")
+        print("Failed to read passed sun dictionary using defaults.")
         sun = {'model': "sunUTC", 'dateUTC': "1904_09_20_17_30"}
         pass
     if 'model' not in sun or 'dateUTC' not in sun:
-        print("Malformed sun dictionary, using default.")
-        sun = {'model': "sunUTC", 'dateUTC': "1904_09_20_17_30"}
+        print('Malformed sun dictionary: {:s}\n using default.'.format(str(sun)))
 
-    print('sun dictionary: {:s}\n'.format(str(sun)))
+        sun = {'model': "sunUTC", 'dateUTC': "1904_09_20_17_30"}
 
     if args.embeddedModels != "NotSet":
         try:
@@ -109,7 +108,7 @@ if __name__ == "__main__":
             mm = int(dateStringUTC[14:16])
             dateUTC = datetime.datetime(YYYY, MM, DD, hh, mm, 0, 0, tzinfo=datetime.timezone.utc)
         sunLatitude = float(WGS84["degLatitude"])
-        sunLongitude = float(WGS84["degLognitude"])
+        sunLongitude = float(WGS84["degLongitude"])
         sunRise, sunSet = pysolar.util.get_sunrise_sunset(latitude_deg=sunLatitude, longitude_deg=sunLongitude, when=dateUTC)
         solarNoon = sunRise+(sunSet-sunRise)/2
         cmpSunRise = (dateUTC-sunRise).total_seconds()/60

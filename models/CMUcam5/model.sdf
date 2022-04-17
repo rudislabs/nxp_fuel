@@ -1,0 +1,56 @@
+<sdf version='1.8'>
+  <model name='CMUcam5'>
+    <pose>0 0 .05 0 0 0</pose>
+    <self_collide>false</self_collide>
+    <static>false</static>
+    <link name="CMUcam5/Base">
+      <inertial>
+        <mass>0.0006</mass>
+        <inertia>
+          <ixx>0.00000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.00000001</izz>
+        </inertia>
+      </inertial>
+      <visual name="CMUcam5/BaseVisual">
+        <pose>0 0 0 1.57079632679 0 1.57079632679</pose>
+        <geometry>
+          <mesh>
+            <uri>model://CMUcam5/meshes/CMUcam5.obj</uri>
+            <scale>.001 .001 .001</scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="cmucam5/BaseCollision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.01 .01 .01</size>
+          </box>
+        </geometry>
+      </collision>
+      <!--Image sensor: Aptina MT9M114-->
+      <sensor name="CMUcam5/Camera" type="camera">
+        <always_on>1</always_on>
+        <update_rate>15</update_rate>
+        <camera>
+          <horizontal_fov>2.5</horizontal_fov>
+          <image>
+            <width>196</width><!--1296 when not 8x reduced-->
+            <height>117</height><!--936 when not 8x reduced-->
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>300</far>
+          </clip>
+        </camera>
+        <topic>CMUcam5/image_raw</topic>
+        <enable_metrics>true</enable_metrics>
+      </sensor>
+    </link>
+  </model>
+</sdf>

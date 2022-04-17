@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+{%- set model_name = "CMUcam5" if params.model_name is not defined else params.model_name -%}
+<model>
+  <name>{{ model_name }}</name>
+  <version>1.0</version>
+  <sdf version='1.8'>model.sdf</sdf>
+
+  <author>
+   <name>Benjamin Perseghetti</name>
+   <email>bperseghetti@rudislabs.com</email>
+  </author>
+
+  <description>Gazebo model of Pixy2 CMUCam5.</description>
+
+</model>

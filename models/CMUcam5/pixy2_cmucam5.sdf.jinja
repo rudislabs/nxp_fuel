@@ -1,0 +1,72 @@
+{%- set model_name = 'CMUcam5' if params.model_name is not defined else params.model_name -%}
+{%- set width = 196 if params.width is not defined else params.width -%}
+{%- set height = 117 if params.height is not defined else params.height -%}
+{%- set near = 0.1 if params.near is not defined else params.near -%}
+{%- set far = 300 if params.far is not defined else params.far -%}
+{%- set update_rate = 15 if params.update_rate is not defined else params.update_rate -%}
+{%- set namespace = "" if namespace == "NotSet" else namespace -%}
+<sdf version='1.8'>
+  <model name='{{ model_name }}'>
+    <pose>0 0 .05 0 0 0</pose>
+    <static>false</static>
+    <link name="{{ model_name }}/Base">
+      <inertial>
+        <mass>0.03</mass>
+        <inertia>
+          <ixx>0.0000005</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0000005</iyy>
+          <iyz>0</iyz>
+          <izz>0.0000005</izz>
+        </inertia>
+      </inertial>
+      <visual name="{{ model_name }}/BaseVisual">
+        <pose>0 0 0 1.57079632679 0 1.57079632679</pose>
+        <geometry>
+          <mesh>
+            <uri>model://CMUcam5/meshes/CMUcam5.obj</uri>
+            <scale>.001 .001 .001</scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="{{ model_name }}/BaseCollision">
+        <pose>0 0 0 1.57079632679 0 1.57079632679</pose>
+        <geometry>
+          <mesh>
+            <uri>model://CMUcam5/meshes/CMUcam5.obj</uri>
+            <scale>.001 .001 .001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <!--Image sensor: Aptina MT9M114-->
+      <sensor name="{{ model_name }}" type="camera">
+        <always_on>1</always_on>
+        <update_rate>{{ update_rate }}</update_rate>
+        <camera>
+          <horizontal_fov>1.5</horizontal_fov>
+          <image>
+            <width>{{ width }}</width><!--1296 when not 8x reduced-->
+            <height>{{ height }}</height><!--936 when not 8x reduced-->
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>{{ near }}</near>
+            <far>{{ far }}</far>
+          </clip>
+          <lens>
+            <type>gnomonical</type>
+            <scale_to_hfov>1</scale_to_hfov>
+          </lens>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+          <topic>"{{ model_name }}"</topic>
+          <enable_metrics>true</enable_metrics>
+        </camera>
+      </sensor>
+    </link>
+  </model>
+</sdf>
