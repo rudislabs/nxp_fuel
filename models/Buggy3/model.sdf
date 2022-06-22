@@ -40,34 +40,15 @@
           </box>
         </geometry>
       </collision>
-      <sensor name="CMUcam5/Camera" type="camera">
-        <pose>.16 0 .5 0 1.2 0</pose>
-        <always_on>1</always_on>
-        <update_rate>15</update_rate>
-        <camera>
-          <horizontal_fov>2.5</horizontal_fov>
-          <image>
-            <width>196</width>
-            <height>117</height>
-            <format>R8G8B8</format>
-          </image>
-          <clip>
-            <near>0.1</near>
-            <far>300</far>
-          </clip>
-        </camera>
-        <topic>CMUcam5/image_raw</topic>
-        <enable_metrics>true</enable_metrics>
-      </sensor>
-      <sensor name="NPU/Camera" type="camera">
+      <sensor name="NPUSim/Camera" type="camera">
         <pose>.16 0 .1 0 0.2 0</pose>
         <always_on>1</always_on>
-        <update_rate>15</update_rate>
+        <update_rate>10</update_rate>
         <camera>
           <horizontal_fov>1.47</horizontal_fov>
           <image>
-            <width>320</width>
-            <height>320</height>
+            <width>300</width>
+            <height>300</height>
             <format>R8G8B8</format>
           </image>
           <clip>
@@ -75,7 +56,7 @@
             <far>1000</far>
           </clip>
         </camera>
-        <topic>NPU/image_raw</topic>
+        <topic>NPU/image_sim</topic>
         <enable_metrics>true</enable_metrics>
       </sensor>
     </link>
