@@ -32,6 +32,7 @@ if __name__ == "__main__":
     parser.add_argument('--WGS84', default={'degLatitude': 39.8039, 'degLognitude': -84.0606, 'mAltitude': 244, 'useSphericalCoords': 1}, help="{'degLatitude': , 'degLognitude': , 'mAltitude': , 'useSphericalCoords': } for spherical coordinates and sunUTC calculation")
     parser.add_argument('--embeddedModels', default="NotSet", help="Array of models with poses to be embedded in world file")
     parser.add_argument('--outputFile', help="world output file")
+    parser.add_argument('--actors', default="NotSet", help="Dictionary of actors and waypoints")
     args = parser.parse_args()
 
     print('Generation script passed world name: "{:s}"'.format(args.name))
@@ -82,6 +83,14 @@ if __name__ == "__main__":
             print('\t{:s}'.format(worldOption))
         print("\nEXITING jinja_world_gen.py...\n")
         exit(1)
+
+    if args.actors != "NotSet":
+        try:
+            args.actors = ast.literal_eval(args.actors)
+        except:
+            print("Failed to read passed embeddedModels dictionary")
+            args.actors = "NotSet"
+            pass
 
     
     env = jinja2.Environment(loader=jinja2.FileSystemLoader(defaultEnvPath))
@@ -167,7 +176,8 @@ if __name__ == "__main__":
          'skybox': args.skybox, \
          'WGS84': WGS84, \
          'name': args.name, \
-         'embeddedModels': args.embeddedModels}
+         'embeddedModels': args.embeddedModels,\
+         'actors': args.actors}
 
         
     

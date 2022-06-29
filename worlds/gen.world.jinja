@@ -209,5 +209,31 @@ Generated with jinja_world_gen.py
       <pose>{{ embeddedModels[model].pose }}</pose>
     </include>
   {%- endfor %}{%- endif %}
+  {%- if actors != 'NotSet' %}{% for actor in actors %}
+    <actor name="{{ actors[actor].name }}">
+      <skin>
+        <filename>{{ actors[actor].skin.file }}</filename>
+        <scale>{{ actors[actor].skin.scale }}</scale>
+      </skin>
+      <animation name="{{ actors[actor].animation.name }}">
+        <filename>{{ actors[actor].animation.file }}</filename>
+        <scale>{{ actors[actor].animation.scale }}</scale>
+        <interpolate_x>{{ actors[actor].animation.interpolate_x }}</interpolate_x>
+      </animation>
+      <script>
+        <loop>{{ actors[actor].script.loop }}</loop>
+        <delay_start>{{ actors[actor].script.delay }}</delay_start>
+        <auto_start>{{ actors[actor].script.auto_start }}</auto_start>
+        <trajectory id="{{ actors[actor].script.trajectory.id }}" type="{{ actors[actor].script.trajectory.type }}" tension="{{ actors[actor].script.trajectory.tension }}">
+          {%- for waypoint in actors[actor].script.trajectory.waypoints  %}
+          <waypoint>
+            <time>{{ actors[actor].script.trajectory.waypoints[waypoint].time }}</time>
+            <pose>{{ actors[actor].script.trajectory.waypoints[waypoint].pose }}</pose>
+          </waypoint>
+          {%- endfor %}
+        </trajectory>
+      </script>
+    </actor>
+  {%- endfor %}{%- endif %}
   </world>
 </sdf>
